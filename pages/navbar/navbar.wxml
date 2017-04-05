@@ -1,0 +1,38 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+                <view class="imgs_container">
+                <view class="btn_group">
+                        <view class="btn btn_left" bindtap="pre">☜</view>
+                        <view class="btn btn_right" bindtap="next">☞</view>
+                    </view>
+                    <view class="title">{{activeTitle}}</view>
+                    <view class="img_box">
+                        <view>
+                        <image animation="{{animationData}}" src="{{activePic}}" mode="aspectFit"></image>
+                        </view>
+                    </view>
+                    <!--<view class="pages">{{activePicIndex+1}} / {{length}}</view>-->
+                     <view class="pages">{{activeSummary}}</view>
+                    <!--<view class="btn_group">
+                        <view class="btn btn_left" bindtap="pre">上一张</view>
+                        <view class="btn btn_right" bindtap="next">下一张</view>
+                    </view>-->
+                    </view>
+                </view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">我是影评</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">我是文章</view>
+            </view>
+        </view>
+    </view>
+</view>
